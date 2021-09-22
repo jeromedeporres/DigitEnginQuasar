@@ -2,9 +2,13 @@
 include 'header.php';
 ?>
 <div id="q-app" style="min-height: 100vh;">
-  <div class="q-pa-md">
+<div class="q-gutter-md tdb" style="max-width: 100%">
     <h4 class="text-right">Bonjour Jerome</h4><!-- Affichage de userName de utilisateur -->
-    <q-btn class="float-right btnDecon" icon="logout" label="Déconnexion"></q-btn><!-- Btn de deconnexion -->
+      <q-btn type="a" href="index.php" target="_self" class="" push color="primary" glossy unelevated icon="keyboard_return" label="Acceuil"></q-btn>
+      <!-- Btn CRUD -->
+      <q-btn type="a" href="ajoutEngin.php" target="_self" label="Ajouter un Engin" push glossy unelevated icon="add_circle_outline" color="primary" /></q-btn>
+      <q-btn type="a" href="index.php" target="_self" class="btnDecon" push glossy unelevated icon="logout" label="Déconnexion"></q-btn><!-- Btn de deconnexion -->
+  
   </div>
   <div class="q-pa-md">
     <q-toolbar-title class="text-center" id="titreTdb">Tableau de Bord-Chef d'Équipe</q-toolbar-title>
@@ -23,8 +27,8 @@ include 'header.php';
         <!-- Btn de CRUD dans chaque ligne de tableau -->
         <template v-slot:body-cell-action="props">
             <q-td :props="props">
-              <q-btn dense round flat color="" @click="editRow(props)" icon="edit" id="btnModif"></q-btn>
-              <q-btn dense round flat color="" @click="deleteRow(props)" icon="delete" id="btnSupp"></q-btn>
+              <q-btn dense round flat @click="editRow(props)" type="a" href="modifEngin.php" icon="edit" id="btnModif"></q-btn>
+              <q-btn dense round flat @click="deleteRow(props)" icon="delete" id="btnSupp"></q-btn>
             </q-td>
           </template>
         <!-- Champ de rechereche -->
@@ -38,9 +42,7 @@ include 'header.php';
 
       <!-- Btn pour telecharger le tableau en format CSV -->
       <template v-slot:top-left>
-        <q-btn color="primary" icon-right="archive" label="Exporter vers excel" no-caps @click="exportTable"/> </q-btn>       
-        <!-- Btn CRUD -->
-        <q-btn type="a" href="ajoutEngin.php" target="_self" label="Ajouter un Engin" color="primary" style="margin:5px"/>
+        <q-btn push glossy unelevated color="primary" icon-right="archive" label="Exporter vers excel" no-caps @click="exportTable"/> </q-btn>       
       </template> 
       </q-table>
       <!-- Affichage de Footer -->

@@ -1,20 +1,17 @@
 <?php
 include 'header.php';
 ?>
-<div id="q-app" style="min-height: 100vh;">
-<div class="q-pa-md q-gutter-sm">
+<div id="q-app">
+<div class="q-gutter-md formAjoutEng" style="max-width: 100%">
     <h4 class="text-right">Bonjour Jérôme</h4><!-- Affichage de userName de utilisateur -->
-    <q-btn type="a" href="index.php" target="_self" class="float-right btnDecon" push glossy unelevated icon="logout" label="Déconnexion"></q-btn><br><!-- Btn de deconnexion -->
-    <q-btn type="a" href="tableauDeBord.php" target="_self" class="float-right" push color="primary" glossy unelevated icon="logout" label="Retour Au Tableau De Bord"></q-btn><!-- Btn de deconnexion -->
-</div>
-<!-- Début Formulaire -->
-  <div class="q-gutter-md formAjoutEng" style="max-width: 100%">
-  <!-- Titre Formulaire -->
+    <q-btn type="a" href="index.php" target="_self" class="" push color="primary" glossy unelevated icon="keyboard_return" label="Acceuil"></q-btn>
+    <q-btn type="a" href="tableauDeBord.php" target="_self" class="" push color="primary" glossy unelevated icon="keyboard_return" label="Tableau De Bord"></q-btn>
+    <q-btn type="a" href="index.php" target="_self" class="btnDecon" push glossy unelevated icon="logout" label="Déconnexion"></q-btn><!-- Btn de deconnexion -->
 
-<div class="q-pa-md formAjoutEng">
-  <q-toolbar-title class="text-center" id="titreAjoutEngin">Ajouter un Engin</q-toolbar-title>
-</div>
-  <!-- DropDown de champ Chariot -->
+<!-- Début Formulaire -->
+<!-- Titre Formulaire -->
+ <q-toolbar-title class="text-center" id="titreAjoutEngin">Ajouter un Engin</q-toolbar-title>
+<!-- DropDown de champ Chariot -->
 </q-select> 
     <q-select 
       v-model="chariot" 
@@ -34,7 +31,8 @@ include 'header.php';
     </template>
 
     </q-select>
-    <q-input v-model="text" label="Numéro"></q-input>
+    <!-- Input en Majuscule -->
+    <q-input v-model="numero" oninput="this.value = this.value.toUpperCase()"  label="Numéro"></q-input>
   <!-- DropDown de champ Equipements -->
     <q-select
       v-model="equipements"
@@ -61,7 +59,7 @@ include 'header.php';
     <template v-slot:option="scope">
       <q-item v-bind="scope.itemProps">
         <q-item-section avatar>
-          <q-icon :name="scope.opt.icon"></q-icon>
+          <q-img :src="scope.opt.imgStatut"></q-img>
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ scope.opt.label }}</q-item-label>
@@ -69,9 +67,10 @@ include 'header.php';
       </q-item>
     </template>
     </q-select>
-      <q-input v-model="text" label="Km Réel"></q-input>
+      <q-input v-model="km" type="number" label="Km Réel"></q-input>
       <q-btn push color="primary" label="Valider" id="btnValider" glossy unelevated icon="check_circle"></q-btn>
-<!-- Footer -->
+</div>
+      <!-- Footer -->
   <q-layout view="hHh lpR fFf">
     <q-page-container>
       <router-view />

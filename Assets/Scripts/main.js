@@ -117,17 +117,20 @@ function wrapCsvValue(val, formatFn) {
 const app = Vue.createApp({
     setup() {
         return {
-            /*  statut: ref('Disponible'), */
+            numero: ref(''),
+            km: ref(''),
+            kmJour: ref(''),
+            horametre: ref(''),
             chariot: ref(null),
             optionsChariot: [{
                     label: 'Selectionner le type',
-                    imageChariot: 'Assets/Img/moulinette.jpg',
+                    imageChariot: 'Assets/Img/imgChariots.jpg',
                     disable: true
                 },
                 { label: 'Chariot Frontal', imageChariot: 'Assets/Img/chariot_frontal.jpg' },
                 { label: 'Moulinette', imageChariot: 'Assets/Img/moulinette.jpg' },
-                { label: 'Moulinette Gerbeur', imageChariot: 'Assets/Img/moulinette.jpg' },
-                { label: 'Retract ', imageChariot: 'Assets/Img/moulinette.jpg' }
+                { label: 'Moulinette Gerbeur', imageChariot: 'Assets/Img/moulinetteGerbeur.jpg' },
+                { label: 'Retract ', imageChariot: 'Assets/Img/retract.jpg' }
             ],
             equipements: ref([]),
             optionsEquipements: [
@@ -136,10 +139,13 @@ const app = Vue.createApp({
                 { label: 'LaDouchette', value: 3 },
             ],
             statut: ref(null),
-            optionsStatut: [
-                { label: 'Selectionner le statut', disable: true },
-                { label: 'Disponible', icon: 'check_circle' },
-                { label: 'Indisponible', icon: 'unpublished' }
+            optionsStatut: [{
+                    label: 'Selectionner le statut',
+                    imgStatut: 'Assets/Img/checkUncheck.jpg',
+                    disable: true
+                },
+                { label: 'Disponible', imgStatut: 'Assets/Img/check.jpg' },
+                { label: 'Indisponible', imgStatut: 'Assets/Img/unCheck.png' }
             ],
             filter: ref(''),
             columns,
