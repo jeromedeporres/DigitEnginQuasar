@@ -1,9 +1,9 @@
 const { ref } = Vue
 
-const { exportFile, useQuasar } = Quasar; 
+const { exportFile, useQuasar } = Quasar;
 
 const columns = [
-    { name: 'id', required: true, label: 'Id', align: 'left', field: row => row.name,format: val => `${val}`, sortable: true },
+    { name: 'id', required: true, label: 'Id', align: 'left', field: row => row.name, format: val => `${val}`, sortable: true },
     { name: 'type', align: 'center', label: 'Type', field: 'type', sortable: true },
     { name: 'numero', label: 'Numéro', field: 'numero', sortable: true },
     { name: 'equipements', label: 'Equipements', field: 'equipements' },
@@ -93,83 +93,86 @@ const rows = [{
         action: ''
     }
 ]
-function wrapCsvValue (val, formatFn) {
-    let formatted = formatFn !== void 0
-      ? formatFn(val)
-      : val
-  
-    formatted = formatted === void 0 || formatted === null
-      ? ''
-      : String(formatted)
-  
-    formatted = formatted.split('"').join('""')
-    /**
-     * Excel accepts \n and \r in strings, but some other CSV parsers do not
-     * Uncomment the next two lines to escape new lines
-     */
-    // .split('\n').join('\\n')
-    // .split('\r').join('\\r')
-  
-    return `"${formatted}"`
-  }
-  
-const app = Vue.createApp({
-    setup () {
-      return {
-       /*  statut: ref('Disponible'), */
-       chariot: ref(null),
-       optionsChariot: [
-         {label:'Selectionner le type', disable:true}, 
-         {label:'Chariot Frontal', icon:''},
-         {label:'Moulinette', icon:''},
-         {label:'Moulinette Gerbeur', icon:''},
-         {label:'Retract ', icon:''}
-         ],
-      equipements: ref([]),
-      optionsEquipements: [
-        {label: 'Terminal Embarqué (TE)', value: 1},
-        {label: 'L\'imprimente',value: 2},
-        {label: 'LaDouchette', value: 3},
-        ],
-      statut: ref(null),
-      optionsStatut: [
-        {label:'Selectionner le statut', disable:true}, 
-        {label:'Disponible', icon:'check_circle'},
-        {label:'Indisponible', icon:'unpublished'}
-        ],
-        filter: ref(''),
-        columns,
-        rows,
 
-        exportTable () {
-            // naive encoding to csv format
-            const content = [columns.map(col => wrapCsvValue(col.label))].concat(
-              rows.map(row => columns.map(col => wrapCsvValue(
-                typeof col.field === 'function'
-                  ? col.field(row)
-                  : row[ col.field === void 0 ? col.name : col.field ],
-                col.format
-              )).join(','))
-            ).join('\r\n')
-    
-            const status = exportFile(
-              'table-export.csv',
-              content,
-              'text/csv'
-            )
-    
-            if (status !== true) {
-              $q.notify({
-                message: 'Le navigateur a refusé le téléchargement du fichier...',
-                color: 'negative',
-                icon: 'warning'
-              })
+function wrapCsvValue(val, formatFn) {
+    let formatted = formatFn !== void 0 ?
+        formatFn(val) :
+        val
+
+    formatted = formatted === void 0 || formatted === null ?
+        '' :
+        String(formatted)
+
+    formatted = formatted.split('"').join('""')
+        /**
+         * Excel accepts \n and \r in strings, but some other CSV parsers do not
+         * Uncomment the next two lines to escape new lines
+         */
+        // .split('\n').join('\\n')
+        // .split('\r').join('\\r')
+
+    return `"${formatted}"`
+}
+
+const app = Vue.createApp({
+    setup() {
+        return {
+            /*  statut: ref('Disponible'), */
+            chariot: ref(null),
+            optionsChariot: [{
+                    label: 'Selectionner le type',
+                    imageChariot: 'Assets/Img/moulinette.jpg',
+                    disable: true
+                },
+                { label: 'Chariot Frontal', imageChariot: 'Assets/Img/chariot_frontal.jpg' },
+                { label: 'Moulinette', imageChariot: 'Assets/Img/moulinette.jpg' },
+                { label: 'Moulinette Gerbeur', imageChariot: 'Assets/Img/moulinette.jpg' },
+                { label: 'Retract ', imageChariot: 'Assets/Img/moulinette.jpg' }
+            ],
+            equipements: ref([]),
+            optionsEquipements: [
+                { label: 'Terminal Embarqué (TE)', value: 1 },
+                { label: 'L\'imprimente', value: 2 },
+                { label: 'LaDouchette', value: 3 },
+            ],
+            statut: ref(null),
+            optionsStatut: [
+                { label: 'Selectionner le statut', disable: true },
+                { label: 'Disponible', icon: 'check_circle' },
+                { label: 'Indisponible', icon: 'unpublished' }
+            ],
+            filter: ref(''),
+            columns,
+            rows,
+
+            exportTable() {
+                // naive encoding to csv format
+                const content = [columns.map(col => wrapCsvValue(col.label))].concat(
+                    rows.map(row => columns.map(col => wrapCsvValue(
+                        typeof col.field === 'function' ?
+                        col.field(row) :
+                        row[col.field === void 0 ? col.name : col.field],
+                        col.format
+                    )).join(','))
+                ).join('\r\n')
+
+                const status = exportFile(
+                    'table-export.csv',
+                    content,
+                    'text/csv'
+                )
+
+                if (status !== true) {
+                    $q.notify({
+                        message: 'Le navigateur a refusé le téléchargement du fichier...',
+                        color: 'negative',
+                        icon: 'warning'
+                    })
+                }
             }
-          }
-      }
+        }
     }
-  })
-    
-  app.use(Quasar, { config: {} })
-  app.mount('#q-app')
-  
+})
+
+app.use(Quasar, { config: {} })
+app.mount('#q-app')

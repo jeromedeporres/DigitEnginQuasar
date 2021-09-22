@@ -1,52 +1,84 @@
 /**************************** Police Raleway ensemble de site web **********************/
+
 * {
     font-family: 'Raleway', sans-serif;
 }
+
+
 /***************************** Footer *****************************/
+
 #footer {
     background-color: #DADADA;
     color: #164194;
 }
+
+
 /****************************** Les Buttons ******************************/
+
 .btnDecon {
     color: #e62d20;
 }
+
 #btnModif {
     color: #ffcc00;
 }
+
 #btnSupp {
     color: #e62d20;
 }
-#btnValider{
+
+#btnValider {
     margin-top: 15%;
     font-size: 16px;
 }
+
+.partieHaut {
+    margin-bottom: 5%;
+    margin-top: 0%;
+}
+
+
 /****************************** Titre des pages ******************************/
-#titreTdb{
+
+.titreUtilisateur {
+    font-size: 20px;
+}
+
+#titreTdb {
     font-size: 25px;
     font-weight: bold;
 }
- #titreAjoutEngin,#titreModifEngin{
+
+#titreAjoutEngin,
+#titreModifEngin {
     margin-bottom: 5%;
     font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
-} 
+}
+
+
 /****************************** THeader de la tableau de bord ******************************/
-.q-table th{
+
+.q-table th {
     font-weight: bold;
 }
+
+
 /****************************** Les Formulaires de CRUD ******************************/
-.formAjoutEng,.formModifEng{
+
+.formAjoutEng,
+.formModifEng {
     text-align: center;
     align-items: center;
     margin-left: 20%;
-    margin-right: 20%;  
+    margin-right: 20%;
 }
+
 @media only screen and (max-width: 768px) {
-    .formAjoutEng,.formModifEng {
+    .formAjoutEng,
+    .formModifEng {
         margin-left: 5%;
         margin-right: 7%;
     }
 }
-
