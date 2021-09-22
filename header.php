@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="quasar/2.0.0-beta.12/quasar.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="Assets/Styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>DIGIT ENGIN</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="Assets/img/logo.jpg" alt="" width="600" height="200">
-                </div>
-        </nav>
-    </header>
+    <!-- Header Image -->
+    <div>
+        <q-header elevated>
+            <img src="Assets/img/logo.jpg" class="img-fluid" alt="imgLogo" height="120" width="300">
+        </q-header>
+    </div>
