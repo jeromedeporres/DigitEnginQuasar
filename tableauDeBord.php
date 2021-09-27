@@ -1,13 +1,11 @@
 <?php
 include 'header.php';
 ?>
-<div id="q-app" style="min-height: 100vh;">
-<div class="q-gutter-md tdb" style="max-width: 100%">
-    <h4 class="text-right">Bonjour Jerome</h4><!-- Affichage de userName de utilisateur -->
-      <q-btn type="a" href="index.php" target="_self" class="" push color="primary" glossy unelevated icon="keyboard_return" label="Acceuil"></q-btn>
+
+      <q-btn type="a" href="index.php" no-caps target="_self" class="" push color="primary" glossy unelevated icon="home" label="Acceuil"></q-btn>
       <!-- Btn CRUD -->
-      <q-btn type="a" href="ajoutEngin.php" target="_self" label="Ajouter un Engin" push glossy unelevated icon="add_circle_outline" color="primary" /></q-btn>
-      <q-btn type="a" href="index.php" target="_self" class="btnDecon" push glossy unelevated icon="logout" label="Déconnexion"></q-btn><!-- Btn de deconnexion -->
+      <q-btn type="a" href="ajoutEngin.php" no-caps target="_self" label="Ajouter un Engin" push glossy unelevated icon="add_circle_outline" color="primary" /></q-btn>
+      <q-btn type="a" href="index.php" no-caps target="_self" class="btnDecon" push glossy unelevated icon="logout" label="Déconnexion"></q-btn><!-- Btn de deconnexion -->
   
   </div>
   <div class="q-pa-md">
@@ -42,7 +40,7 @@ include 'header.php';
 
       <!-- Btn pour telecharger le tableau en format CSV -->
       <template v-slot:top-left>
-        <q-btn push glossy unelevated color="primary" icon-right="archive" label="Exporter vers excel" no-caps @click="exportTable"/> </q-btn>       
+        <q-btn push glossy unelevated color="primary" icon="archive" label="Exporter vers excel" no-caps @click="exportTable"/> </q-btn>       
       </template> 
       </q-table>
       <!-- Affichage de Footer -->

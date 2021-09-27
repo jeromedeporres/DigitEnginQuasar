@@ -1,5 +1,4 @@
 const { ref } = Vue
-
 const { exportFile, useQuasar } = Quasar;
 
 const columns = [
@@ -11,87 +10,120 @@ const columns = [
     { name: 'kmjour', label: 'Km/J', field: 'kmjour', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
     { name: 'kmreel', label: 'Km Réel', field: 'kmreel', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
     { name: 'horametre', label: 'Horamétre', field: 'horametre', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
+    { name: 'client', label: 'Client', field: 'client', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
     { name: 'action', label: 'Action', field: 'action' }
 
 ]
 
 const rows = [{
         id: '',
-        type: 'TypeTest',
-        numero: 'MG001',
+        type: 'Frontal Electrique',
+        numero: 'BLITZ 316 DC',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
         kmjour: 240,
         kmreel: 15400,
         horametre: 8,
+        client: 'PMC(PMCH)',
         action: ''
     },
     {
         id: '',
-        type: 'TypeTest',
-        numero: 'MG001',
-        equipements: 'TE, IMP, DOU',
-        statut: 'No',
-        kmjour: 240,
-        kmreel: 15400,
-        horametre: 8,
-        action: ''
-    },
-    {
-        id: '',
-        type: 'TypeTest',
-        numero: 'MG001',
+        type: 'Frontal Electrique',
+        numero: 'EFG218',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
         kmjour: 240,
         kmreel: 15400,
         horametre: 8,
+        client: 'KIMBERLY CLARCK(PMCK)',
         action: ''
     },
     {
         id: '',
-        type: 'TypeTest',
-        numero: 'MG001',
+        type: 'Gerbeur',
+        numero: 'EGVS14',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
         kmjour: 240,
         kmreel: 15400,
         horametre: 8,
+        client: 'DOUWE EGBERTS (JDE)',
         action: ''
     },
     {
         id: '',
-        type: 'TypeTest',
-        numero: 'MG001',
+        type: 'Gerbeur',
+        numero: 'EMD115i',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
         kmjour: 240,
         kmreel: 15400,
         horametre: 8,
+        client: 'INTERSNACK',
         action: ''
     },
     {
         id: '',
-        type: 'TypeTest',
-        numero: 'MG001',
+        type: 'Moulinette',
+        numero: 'ERE225',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
         kmjour: 240,
         kmreel: 15400,
         horametre: 8,
+        client: 'INTERSNACK',
         action: ''
     },
     {
         id: '',
-        type: 'TypeTest',
-        numero: 'MG001',
+        type: 'Moulinette',
+        numero: 'ERE225',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
         kmjour: 240,
         kmreel: 15400,
         horametre: 8,
+        client: 'INTERSNACK',
+        action: ''
+    },
+    {
+        id: '',
+        type: 'Preparateur de Commande',
+        numero: 'ECE225',
+        equipements: 'TE, IMP, DOU',
+        statut: 'Oui',
+        kmjour: 240,
+        kmreel: 15400,
+        horametre: 8,
+        client: 'Pas de Client',
+        action: ''
+    },
+    {
+        id: '',
+        type: 'Preparateur de Commande a Mat',
+        numero: 'N20 LI',
+        equipements: 'TE, IMP, DOU',
+        statut: 'Oui',
+        kmjour: 240,
+        kmreel: 15400,
+        horametre: 8,
+        client: 'BOLTON (Saupiquet)',
+        action: ''
+    },
+    {
+        id: '',
+        type: 'Retractable',
+        numero: 'ETV 320',
+        equipements: 'TE, IMP, DOU',
+        statut: 'Oui',
+        kmjour: 240,
+        kmreel: 15400,
+        horametre: 8,
+        client: 'BOLTON (Saupiquet)',
         action: ''
     }
+
 ]
 
 function wrapCsvValue(val, formatFn) {
@@ -116,7 +148,27 @@ function wrapCsvValue(val, formatFn) {
 
 const app = Vue.createApp({
     setup() {
+        /*const $q = useQuasar();
+
+                function onRejected(rejectedEntries) {
+                    // Notify plugin needs to be installed
+                    // https://quasar.dev/quasar-plugins/notify#Installation
+                    $q.notify({
+                        type: "negative",
+                        message: `${rejectedEntries.length} file(s) did not pass validation constraints`
+                    });
+                }
+                return { onRejected }
+            } */
+
+
+
         return {
+            client: ref(''),
+            clients: [
+                'BOLTON (Saupiquet)', 'DOUWE EGBERTS (JDE)', 'INTERSNACK', 'KIMBERLY CLARCK (PMCK)', 'PMC (PMCH)', 'UNILEVER'
+            ],
+            observations: ref(''),
             numero: ref(''),
             km: ref(''),
             kmJour: ref(''),
@@ -127,10 +179,12 @@ const app = Vue.createApp({
                     imageChariot: 'Assets/Img/imgChariots.jpg',
                     disable: true
                 },
-                { label: 'Chariot Frontal', imageChariot: 'Assets/Img/chariot_frontal.jpg' },
-                { label: 'Moulinette', imageChariot: 'Assets/Img/moulinette.jpg' },
-                { label: 'Moulinette Gerbeur', imageChariot: 'Assets/Img/moulinetteGerbeur.jpg' },
-                { label: 'Retract ', imageChariot: 'Assets/Img/retract.jpg' }
+                { label: 'Frontal Electrique', imageChariot: 'Assets/Img/chariot_frontal.jpg' },
+                { label: 'Gerbeur', imageChariot: 'Assets/Img/moulinetteGerbeur.jpg' },
+                { label: 'Moulinette ', imageChariot: 'Assets/Img/moulinette.jpg' },
+                { label: 'Préparateur de Commande ', imageChariot: 'Assets/Img/prepCommande.jpg' },
+                { label: 'Préparateur de Commande a Mat ', imageChariot: 'Assets/Img/prepCommandeMat.jpg' },
+                { label: 'Rectractable ', imageChariot: 'Assets/Img/retract.jpg' }
             ],
             equipements: ref([]),
             optionsEquipements: [
@@ -180,5 +234,5 @@ const app = Vue.createApp({
     }
 })
 
-app.use(Quasar, { config: {} })
+app.use(Quasar, { config: {} });
 app.mount('#q-app')

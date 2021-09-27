@@ -4,6 +4,15 @@
     font-family: 'Raleway', sans-serif;
 }
 
+.dateHeure {
+    color: #164194;
+}
+
+.header {
+    height: 150px;
+    width: 350px;
+}
+
 
 /***************************** Footer *****************************/
 
@@ -32,25 +41,31 @@
     font-size: 16px;
 }
 
-.partieHaut {
+
+/* .partieHaut {
     margin-bottom: 5%;
     margin-top: 0%;
 }
+ */
 
 
 /****************************** Titre des pages ******************************/
 
 .titreUtilisateur {
-    font-size: 20px;
+    color: #164194;
+    font-size: 35px;
 }
 
 #titreAjoutEngin,
 #titreModifEngin,
-#titreTdb {
+#titreTdb,
+#titreDebutSession,
+#titreFinSession {
     margin-bottom: 5%;
     font-size: 25px;
     font-weight: bold;
     text-transform: uppercase;
+    color: #164194;
 }
 
 
