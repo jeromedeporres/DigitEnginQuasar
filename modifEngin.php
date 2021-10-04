@@ -58,11 +58,12 @@ include 'header.php';
         </q-item-section>
         <q-item-section>
           <q-item-label>{{ scope.opt.label }}</q-item-label>
+          <q-item-label caption>{{ scope.opt.description }}</q-item-label>
         </q-item-section>
       </q-item>
     </template>
     </q-select>
-      <q-input v-model="kmJour" type="number" label="Km/Jour"></q-input>
+      <q-input v-model="heurejour" type="time" label="Heure/Jour"></q-input>
       <q-input v-model="km" type="number" label="Km Réel"></q-input>
       <q-input v-model="horametre" type="number" label="Horamétre"></q-input>
       <q-select v-model="client" :options="clients" label="Client" /></q-select>

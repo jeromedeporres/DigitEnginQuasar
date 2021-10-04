@@ -1,27 +1,125 @@
 const { ref } = Vue
 const { exportFile, useQuasar } = Quasar;
-
-const columns = [
-    { name: 'id', required: true, label: 'Id', align: 'left', field: row => row.name, format: val => `${val}`, sortable: true },
-    { name: 'type', align: 'center', label: 'Type', field: 'type', sortable: true },
-    { name: 'numero', label: 'Numéro', field: 'numero', sortable: true },
-    { name: 'equipements', label: 'Equipements', field: 'equipements' },
-    { name: 'statut', label: 'Statut', field: 'statut' },
-    { name: 'kmjour', label: 'Km/J', field: 'kmjour', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-    { name: 'kmreel', label: 'Km Réel', field: 'kmreel', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-    { name: 'horametre', label: 'Horamétre', field: 'horametre', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-    { name: 'client', label: 'Client', field: 'client', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
+/* Données Client */
+const columnsClient = [{
+        name: 'id',
+        required: true,
+        label: 'Id',
+        align: 'center',
+        field: rowsClient => rowsClient.name,
+        format: val => `${val}`,
+        sortable: true
+    }, {
+        name: 'nomClient',
+        align: 'center',
+        label: 'Nom de Client',
+        align: 'center',
+        field: 'nomClient',
+        sortable: true
+    },
+    { name: 'action', label: 'Action', field: 'action' }
+]
+const rowsClient = [{
+        id: '',
+        nomClient: 'PMC(PMCH)',
+        action: ''
+    }, {
+        id: '',
+        nomClient: 'KIMBERLY CLARCK(PMCK)',
+        action: ''
+    }, {
+        id: '',
+        nomClient: 'DOUWE EGBERTS (JDE)',
+        action: ''
+    }]
+    /* Donnéées TDB */
+const columnsTdb = [{
+        name: 'id',
+        required: true,
+        label: 'Id',
+        align: 'center',
+        field: rowsTdb => rowsTdb.name,
+        format: val => `${val}`,
+        sortable: true
+    },
+    {
+        name: 'type',
+        align: 'center',
+        label: 'Type',
+        align: 'center',
+        field: 'type',
+        sortable: true
+    },
+    {
+        name: 'numero',
+        label: 'Numéro',
+        field: 'numero',
+        align: 'center',
+        sortable: true
+    },
+    {
+        name: 'revision',
+        label: 'Révision',
+        field: 'revision',
+        align: 'center',
+        sortable: true
+    },
+    {
+        name: 'equipements',
+        label: 'Equipements',
+        align: 'center',
+        field: 'equipements'
+    },
+    {
+        name: 'statut',
+        label: 'Statut',
+        align: 'center',
+        field: 'statut',
+        sortable: true
+    },
+    {
+        name: 'heurejour',
+        label: 'Heure/J',
+        field: 'heurejour',
+        align: 'center',
+        sortable: true,
+        sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
+    },
+    {
+        name: 'kmreel',
+        label: 'Km Réel',
+        field: 'kmreel',
+        align: 'center',
+        sortable: true,
+        sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
+    },
+    {
+        name: 'horametre',
+        label: 'Horamétre',
+        field: 'horametre',
+        align: 'center',
+        sortable: true,
+        sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
+    },
+    {
+        name: 'client',
+        label: 'Client',
+        field: 'client',
+        align: 'center',
+        sortable: true,
+        sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
+    },
     { name: 'action', label: 'Action', field: 'action' }
 
 ]
 
-const rows = [{
+const rowsTdb = [{
         id: '',
         type: 'Frontal Electrique',
         numero: 'BLITZ 316 DC',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'PMC(PMCH)',
@@ -33,7 +131,7 @@ const rows = [{
         numero: 'EFG218',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'KIMBERLY CLARCK(PMCK)',
@@ -45,7 +143,7 @@ const rows = [{
         numero: 'EGVS14',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'DOUWE EGBERTS (JDE)',
@@ -57,7 +155,7 @@ const rows = [{
         numero: 'EMD115i',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'INTERSNACK',
@@ -69,7 +167,7 @@ const rows = [{
         numero: 'ERE225',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'INTERSNACK',
@@ -81,7 +179,7 @@ const rows = [{
         numero: 'ERE225',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'INTERSNACK',
@@ -93,7 +191,7 @@ const rows = [{
         numero: 'ECE225',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'Pas de Client',
@@ -105,7 +203,7 @@ const rows = [{
         numero: 'N20 LI',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'BOLTON (Saupiquet)',
@@ -117,7 +215,7 @@ const rows = [{
         numero: 'ETV 320',
         equipements: 'TE, IMP, DOU',
         statut: 'Oui',
-        kmjour: 240,
+        heurejour: 240,
         kmreel: 15400,
         horametre: 8,
         client: 'BOLTON (Saupiquet)',
@@ -148,6 +246,7 @@ function wrapCsvValue(val, formatFn) {
 
 const app = Vue.createApp({
     setup() {
+
         /*const $q = useQuasar();
 
                 function onRejected(rejectedEntries) {
@@ -161,17 +260,25 @@ const app = Vue.createApp({
                 return { onRejected }
             } */
 
-
-
         return {
-            client: ref(''),
+            modelTri: ref(null),
+            optionsTri: [
+                'Statut', 'Heure/Jour (- à +)', 'Heure/Jour (+ à -)', 'KM Réel (- à +)', 'KM Réel (+ à -)', 'Horamétre (+ à -)', 'Horamétre (- à +)', 'Client'
+            ],
+            modelFiltre: ref(null),
+            optionsFiltre: [
+                'Statut', 'Heure/Jour', 'KM Réel', 'Horamétre', 'Client'
+            ],
+            nomEquipement: ref(''),
+            nomClient: ref(''),
+            nomType: ref(''),
             clients: [
                 'BOLTON (Saupiquet)', 'DOUWE EGBERTS (JDE)', 'INTERSNACK', 'KIMBERLY CLARCK (PMCK)', 'PMC (PMCH)', 'UNILEVER'
             ],
             observations: ref(''),
             numero: ref(''),
             km: ref(''),
-            kmJour: ref(''),
+            heurejour: ref(''),
             horametre: ref(''),
             chariot: ref(null),
             optionsChariot: [{
@@ -198,20 +305,22 @@ const app = Vue.createApp({
                     imgStatut: 'Assets/Img/checkUncheck.jpg',
                     disable: true
                 },
-                { label: 'Disponible', imgStatut: 'Assets/Img/check.jpg' },
-                { label: 'Indisponible', imgStatut: 'Assets/Img/unCheck.png' }
+                { label: 'Disponible', value: 'Disponible', description: 'Chariot Disponible', imgStatut: 'Assets/Img/check.png' },
+                { label: 'Indisponible', value: 'Indisponible', description: 'Chariot Indisponible', imgStatut: 'Assets/Img/unCheck.png' }
             ],
             filter: ref(''),
-            columns,
-            rows,
-
-            exportTable() {
-                // naive encoding to csv format
-                const content = [columns.map(col => wrapCsvValue(col.label))].concat(
-                    rows.map(row => columns.map(col => wrapCsvValue(
+            columnsTdb,
+            rowsTdb,
+            columnsClient,
+            rowsClient,
+            /* Exporter en format csv (TDB) */
+            exportTableTdb() {
+                /* Encodage a format csv */
+                const content = [columnsTdb.map(col => wrapCsvValue(col.label))].concat(
+                    rowsTdb.map(rowsTdb => columnsTdb.map(col => wrapCsvValue(
                         typeof col.field === 'function' ?
-                        col.field(row) :
-                        row[col.field === void 0 ? col.name : col.field],
+                        col.field(rowsTdb) :
+                        rowsTdb[col.field === void 0 ? col.name : col.field],
                         col.format
                     )).join(','))
                 ).join('\r\n')
@@ -221,7 +330,24 @@ const app = Vue.createApp({
                     content,
                     'text/csv'
                 )
+            },
+            /* Exporter en format csv (CLIENTS) */
+            exportTableClient() {
+                /* Encodage a format csv */
+                const content = [columnsClient.map(col => wrapCsvValue(col.label))].concat(
+                    rowsClient.map(rowsClient => columnsClient.map(col => wrapCsvValue(
+                        typeof col.field === 'function' ?
+                        col.field(rowsClient) :
+                        rowsClient[col.field === void 0 ? col.name : col.field],
+                        col.format
+                    )).join(','))
+                ).join('\r\n')
 
+                const status = exportFile(
+                    'table-export.csv',
+                    content,
+                    'text/csv'
+                )
                 if (status !== true) {
                     $q.notify({
                         message: 'Le navigateur a refusé le téléchargement du fichier...',
