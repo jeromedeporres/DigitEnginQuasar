@@ -21,5 +21,5 @@
         </q-header>
     </div>
     <div id="q-app" style="min-height: 100vh;">
-        <div class="q-gutter-md tdb formModifEng formAjoutEng" style="max-width: 100%">
+        <div class="q-gutter-md tdb" style="max-width: 100%">
             <h1 class="text-right titreUtilisateur">Bonjour <strong>Jérome</strong></h1><!-- Affichage de userName de utilisateur -->

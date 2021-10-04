@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 ?>
-    <q-btn type="a" href="index.php" no-caps target="_self" class="" push color="primary" glossy unelevated icon="home" label="Acceuil"></q-btn>
+    <q-btn type="a" href="index.php" no-caps target="_self" class="" push color="primary" glossy unelevated icon="home" label="Accueil"></q-btn>
     <!-- Btn CRUD -->
     <q-btn type="a" href="ajoutEngin.php" no-caps target="_self" label="Ajouter un Engin" push glossy unelevated icon="add_circle_outline" color="primary" /></q-btn>
     <q-btn type="a" href="ajoutClient.php" no-caps target="_self" label="Ajouter un Client" push glossy unelevated icon="add_circle_outline" color="primary" /></q-btn>

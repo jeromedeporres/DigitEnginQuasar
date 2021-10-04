@@ -1,13 +1,13 @@
 <?php
 include 'header.php';
 ?>
-    <q-btn type="a" href="index.php" no-caps target="_self" class="" push color="primary" glossy unelevated icon="home" label="Acceuil"></q-btn>
+    <q-btn type="a" href="index.php" no-caps target="_self" class="" push color="primary" glossy unelevated icon="home" label="Accueil"></q-btn>
     <q-btn type="a" href="tableauDeBord.php" no-caps target="_self" class="" push color="primary" glossy unelevated icon="dashboard" label="Tableau De Bord"></q-btn>
     <q-btn type="a" href="index.php" no-caps target="_self" class="btnDecon" push glossy unelevated icon="logout" label="Déconnexion"></q-btn><!-- Btn de deconnexion -->
 
 <!-- Début Formulaire -->
 <!-- Titre Formulaire -->
- <q-toolbar-title class="text-center" id="titreAjoutEngin">Ajouter un Engin</q-toolbar-title>
+ <q-toolbar-title class="text-center formAjoutEng" id="titreAjoutEngin">Ajouter un Engin</q-toolbar-title>
 <!-- DropDown de champ Chariot -->
     <q-select 
       v-model="chariot" 

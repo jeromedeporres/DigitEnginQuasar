@@ -80,9 +80,15 @@
 
 /****************************** Les Formulaires de CRUD ******************************/
 
-.formAjoutEng,
-.formModifEng,
 .tdb {
+    text-align: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.formAjoutEng,
+.formModifEng {
     text-align: center;
     align-items: center;
     margin-left: 20%;

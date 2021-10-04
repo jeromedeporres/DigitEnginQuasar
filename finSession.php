@@ -1,7 +1,7 @@
 <?php
 include 'header.php'
 ?>
-<q-btn type="a" href="index.php" no-caps target="_self" color="primary" push glossy unelevated icon="home" label="Acceuil"></q-btn>
+<q-btn type="a" href="index.php" no-caps target="_self" color="primary" push glossy unelevated icon="home" label="Accueil"></q-btn>
 <q-btn type="a" href="tableauDeBord.php" no-caps target="_self" class="" push color="primary" glossy unelevated icon="dashboard" label="Tableau De Bord"></q-btn>
 <q-btn type="a" href="index.php" no-caps target="_self" class="btnDecon" push glossy unelevated icon="logout" label="Déconnexion"></q-btn><!-- Btn de deconnexion -->
 
